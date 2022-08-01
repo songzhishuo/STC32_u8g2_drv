@@ -554,6 +554,11 @@
               <FileType>1</FileType>
               <FilePath>.\u8g2_porting.c</FilePath>
             </File>
+            <File>
+              <FileName>u8g2_test.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\u8g2_test.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

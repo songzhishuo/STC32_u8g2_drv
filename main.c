@@ -36,7 +36,7 @@ void main(void)
   HAL_GPIO_Init();
   P40 = 0; //LED Power On
 
-  HAL_Timer0_Init();
+ // HAL_Timer0_Init();
   EA = 1; //打开总中断
 
   HAL_I2C_Init();
