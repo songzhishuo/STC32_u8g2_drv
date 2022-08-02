@@ -357,7 +357,7 @@ struct u8g2_struct
   
   
   /* information about the current font */
-  const uint8_t *font;             /* current font for all text procedures */
+   uint8_t *font;             /* current font for all text procedures */
   // removed: const u8g2_kerning_t *kerning;		/* can be NULL */
   // removed: u8g2_get_kerning_cb get_kerning_cb;
   
@@ -1628,66 +1628,70 @@ void u8g2_SetupBuffer_Utf8(u8g2_t *u8g2, const u8g2_cb_t *u8g2_cb);
 /*==========================================*/
 
 /* start font list */
-extern const uint8_t u8g2_font_u8glib_4_tf[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_tf");
-//Test
-// extern  uint8_t u8g2_font_fub17_tf[] U8G2_FONT_SECTION("u8g2_font_fub17_tf");
+extern  uint8_t code u8g2_font_u8glib_4_tf[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_tf");
+extern uint8_t code u8g2_font_u8glib_4_tr[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_tr");
+extern uint8_t code u8g2_font_u8glib_4_hf[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_hf");
+extern uint8_t code u8g2_font_u8glib_4_hr[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_hr");
+extern uint8_t code u8g2_font_m2icon_5_tf[] U8G2_FONT_SECTION("u8g2_font_m2icon_5_tf");
+extern uint8_t code u8g2_font_m2icon_7_tf[] U8G2_FONT_SECTION("u8g2_font_m2icon_7_tf");
+extern uint8_t code u8g2_font_m2icon_9_tf[] U8G2_FONT_SECTION("u8g2_font_m2icon_9_tf");
+extern uint8_t code u8g2_font_emoticons21_tr[] U8G2_FONT_SECTION("u8g2_font_emoticons21_tr");
+extern uint8_t code u8g2_font_battery19_tn[] U8G2_FONT_SECTION("u8g2_font_battery19_tn");
+extern uint8_t code u8g2_font_battery24_tr[] U8G2_FONT_SECTION("u8g2_font_battery24_tr");
+extern uint8_t code u8g2_font_squeezed_r6_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_r6_tr");
+extern uint8_t code u8g2_font_squeezed_r6_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_r6_tn");
+extern uint8_t code u8g2_font_squeezed_b6_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_b6_tr");
+extern uint8_t code u8g2_font_squeezed_b6_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_b6_tn");
+extern uint8_t code u8g2_font_squeezed_r7_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_r7_tr");
+extern uint8_t code u8g2_font_squeezed_r7_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_r7_tn");
+extern uint8_t code u8g2_font_squeezed_b7_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_b7_tr");
+extern uint8_t code u8g2_font_squeezed_b7_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_b7_tn");
+extern uint8_t code u8g2_font_freedoomr10_tu[] U8G2_FONT_SECTION("u8g2_font_freedoomr10_tu");
+extern uint8_t code u8g2_font_freedoomr10_mu[] U8G2_FONT_SECTION("u8g2_font_freedoomr10_mu");
+extern uint8_t code u8g2_font_freedoomr25_tn[] U8G2_FONT_SECTION("u8g2_font_freedoomr25_tn");
+extern uint8_t code u8g2_font_freedoomr25_mn[] U8G2_FONT_SECTION("u8g2_font_freedoomr25_mn");
+extern uint8_t code u8g2_font_7Segments_26x42_mn[] U8G2_FONT_SECTION("u8g2_font_7Segments_26x42_mn");
+extern uint8_t code u8g2_font_amstrad_cpc_extended_8f[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8f");
+extern uint8_t code u8g2_font_amstrad_cpc_extended_8r[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8r");
+extern uint8_t code u8g2_font_amstrad_cpc_extended_8n[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8n");
+extern uint8_t code u8g2_font_amstrad_cpc_extended_8u[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8u");
+extern uint8_t code u8g2_font_cursor_tf[] U8G2_FONT_SECTION("u8g2_font_cursor_tf");
+extern uint8_t code u8g2_font_cursor_tr[] U8G2_FONT_SECTION("u8g2_font_cursor_tr");
+extern uint8_t code u8g2_font_micro_tr[] U8G2_FONT_SECTION("u8g2_font_micro_tr");
+extern uint8_t code u8g2_font_micro_tn[] U8G2_FONT_SECTION("u8g2_font_micro_tn");
+extern uint8_t code u8g2_font_micro_mr[] U8G2_FONT_SECTION("u8g2_font_micro_mr");
+extern uint8_t code u8g2_font_micro_mn[] U8G2_FONT_SECTION("u8g2_font_micro_mn");
+extern uint8_t code u8g2_font_4x6_tf[] U8G2_FONT_SECTION("u8g2_font_4x6_tf");
+extern uint8_t code u8g2_font_4x6_tr[] U8G2_FONT_SECTION("u8g2_font_4x6_tr");
+extern uint8_t code u8g2_font_4x6_tn[] U8G2_FONT_SECTION("u8g2_font_4x6_tn");
+extern uint8_t code u8g2_font_4x6_mf[] U8G2_FONT_SECTION("u8g2_font_4x6_mf");
+extern uint8_t code u8g2_font_4x6_mr[] U8G2_FONT_SECTION("u8g2_font_4x6_mr");
+extern uint8_t code u8g2_font_4x6_mn[] U8G2_FONT_SECTION("u8g2_font_4x6_mn");
+extern uint8_t code u8g2_font_4x6_t_cyrillic[] U8G2_FONT_SECTION("u8g2_font_4x6_t_cyrillic");
+extern uint8_t code u8g2_font_5x7_tf[] U8G2_FONT_SECTION("u8g2_font_5x7_tf");
+extern uint8_t code u8g2_font_5x7_tr[] U8G2_FONT_SECTION("u8g2_font_5x7_tr");
+extern uint8_t code u8g2_font_5x7_tn[] U8G2_FONT_SECTION("u8g2_font_5x7_tn");
+extern uint8_t code u8g2_font_5x7_mf[] U8G2_FONT_SECTION("u8g2_font_5x7_mf");
+extern uint8_t code u8g2_font_5x7_mr[] U8G2_FONT_SECTION("u8g2_font_5x7_mr");
+extern uint8_t code u8g2_font_5x7_mn[] U8G2_FONT_SECTION("u8g2_font_5x7_mn");
+extern uint8_t code u8g2_font_5x7_t_cyrillic[] U8G2_FONT_SECTION("u8g2_font_5x7_t_cyrillic");
+
+extern uint8_t code u8g2_font_5x8_tf[] U8G2_FONT_SECTION("u8g2_font_5x8_tf");
+extern uint8_t code u8g2_font_5x8_tr[] U8G2_FONT_SECTION("u8g2_font_5x8_tr");
+extern uint8_t code u8g2_font_5x8_tn[] U8G2_FONT_SECTION("u8g2_font_5x8_tn");
+
+extern uint8_t code u8g2_font_5x8_mf[] U8G2_FONT_SECTION("u8g2_font_5x8_mf");
+extern uint8_t code u8g2_font_5x8_mr[] U8G2_FONT_SECTION("u8g2_font_5x8_mr");
+extern uint8_t code u8g2_font_5x8_mn[] U8G2_FONT_SECTION("u8g2_font_5x8_mn");
+
+extern uint8_t code u8g2_font_5x8_t_cyrillic[] U8G2_FONT_SECTION("u8g2_font_5x8_t_cyrillic");
 #if 0
-extern const uint8_t u8g2_font_u8glib_4_tr[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_tr");
-extern const uint8_t u8g2_font_u8glib_4_hf[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_hf");
-extern const uint8_t u8g2_font_u8glib_4_hr[] U8G2_FONT_SECTION("u8g2_font_u8glib_4_hr");
-extern const uint8_t u8g2_font_m2icon_5_tf[] U8G2_FONT_SECTION("u8g2_font_m2icon_5_tf");
-extern const uint8_t u8g2_font_m2icon_7_tf[] U8G2_FONT_SECTION("u8g2_font_m2icon_7_tf");
-extern const uint8_t u8g2_font_m2icon_9_tf[] U8G2_FONT_SECTION("u8g2_font_m2icon_9_tf");
-extern const uint8_t u8g2_font_emoticons21_tr[] U8G2_FONT_SECTION("u8g2_font_emoticons21_tr");
-extern const uint8_t u8g2_font_battery19_tn[] U8G2_FONT_SECTION("u8g2_font_battery19_tn");
-extern const uint8_t u8g2_font_battery24_tr[] U8G2_FONT_SECTION("u8g2_font_battery24_tr");
-extern const uint8_t u8g2_font_squeezed_r6_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_r6_tr");
-extern const uint8_t u8g2_font_squeezed_r6_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_r6_tn");
-extern const uint8_t u8g2_font_squeezed_b6_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_b6_tr");
-extern const uint8_t u8g2_font_squeezed_b6_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_b6_tn");
-extern const uint8_t u8g2_font_squeezed_r7_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_r7_tr");
-extern const uint8_t u8g2_font_squeezed_r7_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_r7_tn");
-extern const uint8_t u8g2_font_squeezed_b7_tr[] U8G2_FONT_SECTION("u8g2_font_squeezed_b7_tr");
-extern const uint8_t u8g2_font_squeezed_b7_tn[] U8G2_FONT_SECTION("u8g2_font_squeezed_b7_tn");
-extern const uint8_t u8g2_font_freedoomr10_tu[] U8G2_FONT_SECTION("u8g2_font_freedoomr10_tu");
-extern const uint8_t u8g2_font_freedoomr10_mu[] U8G2_FONT_SECTION("u8g2_font_freedoomr10_mu");
-extern const uint8_t u8g2_font_freedoomr25_tn[] U8G2_FONT_SECTION("u8g2_font_freedoomr25_tn");
-extern const uint8_t u8g2_font_freedoomr25_mn[] U8G2_FONT_SECTION("u8g2_font_freedoomr25_mn");
-extern const uint8_t u8g2_font_7Segments_26x42_mn[] U8G2_FONT_SECTION("u8g2_font_7Segments_26x42_mn");
-extern const uint8_t u8g2_font_amstrad_cpc_extended_8f[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8f");
-extern const uint8_t u8g2_font_amstrad_cpc_extended_8r[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8r");
-extern const uint8_t u8g2_font_amstrad_cpc_extended_8n[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8n");
-extern const uint8_t u8g2_font_amstrad_cpc_extended_8u[] U8G2_FONT_SECTION("u8g2_font_amstrad_cpc_extended_8u");
-extern const uint8_t u8g2_font_cursor_tf[] U8G2_FONT_SECTION("u8g2_font_cursor_tf");
-extern const uint8_t u8g2_font_cursor_tr[] U8G2_FONT_SECTION("u8g2_font_cursor_tr");
-extern const uint8_t u8g2_font_micro_tr[] U8G2_FONT_SECTION("u8g2_font_micro_tr");
-extern const uint8_t u8g2_font_micro_tn[] U8G2_FONT_SECTION("u8g2_font_micro_tn");
-extern const uint8_t u8g2_font_micro_mr[] U8G2_FONT_SECTION("u8g2_font_micro_mr");
-extern const uint8_t u8g2_font_micro_mn[] U8G2_FONT_SECTION("u8g2_font_micro_mn");
-extern const uint8_t u8g2_font_4x6_tf[] U8G2_FONT_SECTION("u8g2_font_4x6_tf");
-extern const uint8_t u8g2_font_4x6_tr[] U8G2_FONT_SECTION("u8g2_font_4x6_tr");
-extern const uint8_t u8g2_font_4x6_tn[] U8G2_FONT_SECTION("u8g2_font_4x6_tn");
-extern const uint8_t u8g2_font_4x6_mf[] U8G2_FONT_SECTION("u8g2_font_4x6_mf");
-extern const uint8_t u8g2_font_4x6_mr[] U8G2_FONT_SECTION("u8g2_font_4x6_mr");
-extern const uint8_t u8g2_font_4x6_mn[] U8G2_FONT_SECTION("u8g2_font_4x6_mn");
-extern const uint8_t u8g2_font_4x6_t_cyrillic[] U8G2_FONT_SECTION("u8g2_font_4x6_t_cyrillic");
-extern const uint8_t u8g2_font_5x7_tf[] U8G2_FONT_SECTION("u8g2_font_5x7_tf");
-extern const uint8_t u8g2_font_5x7_tr[] U8G2_FONT_SECTION("u8g2_font_5x7_tr");
-extern const uint8_t u8g2_font_5x7_tn[] U8G2_FONT_SECTION("u8g2_font_5x7_tn");
-extern const uint8_t u8g2_font_5x7_mf[] U8G2_FONT_SECTION("u8g2_font_5x7_mf");
-extern const uint8_t u8g2_font_5x7_mr[] U8G2_FONT_SECTION("u8g2_font_5x7_mr");
-extern const uint8_t u8g2_font_5x7_mn[] U8G2_FONT_SECTION("u8g2_font_5x7_mn");
-extern const uint8_t u8g2_font_5x7_t_cyrillic[] U8G2_FONT_SECTION("u8g2_font_5x7_t_cyrillic");
-extern const uint8_t u8g2_font_5x8_tf[] U8G2_FONT_SECTION("u8g2_font_5x8_tf");
-extern const uint8_t u8g2_font_5x8_tr[] U8G2_FONT_SECTION("u8g2_font_5x8_tr");
-extern const uint8_t u8g2_font_5x8_tn[] U8G2_FONT_SECTION("u8g2_font_5x8_tn");
-extern const uint8_t u8g2_font_5x8_mf[] U8G2_FONT_SECTION("u8g2_font_5x8_mf");
-extern const uint8_t u8g2_font_5x8_mr[] U8G2_FONT_SECTION("u8g2_font_5x8_mr");
-extern const uint8_t u8g2_font_5x8_mn[] U8G2_FONT_SECTION("u8g2_font_5x8_mn");
-extern const uint8_t u8g2_font_5x8_t_cyrillic[] U8G2_FONT_SECTION("u8g2_font_5x8_t_cyrillic");
 extern const uint8_t u8g2_font_6x10_tf[] U8G2_FONT_SECTION("u8g2_font_6x10_tf");
+
 extern const uint8_t u8g2_font_6x10_tr[] U8G2_FONT_SECTION("u8g2_font_6x10_tr");
+
 extern const uint8_t u8g2_font_6x10_tn[] U8G2_FONT_SECTION("u8g2_font_6x10_tn");
+
 extern const uint8_t u8g2_font_6x10_mf[] U8G2_FONT_SECTION("u8g2_font_6x10_mf");
 extern const uint8_t u8g2_font_6x10_mr[] U8G2_FONT_SECTION("u8g2_font_6x10_mr");
 extern const uint8_t u8g2_font_6x10_mn[] U8G2_FONT_SECTION("u8g2_font_6x10_mn");

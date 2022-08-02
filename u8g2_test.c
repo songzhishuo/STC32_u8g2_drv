@@ -27,11 +27,11 @@ void draw(u8g2_t *u8g2)
     u8g2_DrawStr(u8g2, 0, 20, "U");
     
     u8g2_SetFontDirection(u8g2, 1);
-    // u8g2_SetFont(u8g2, u8g2_font_u8glib_4_tf);
+    u8g2_SetFont(u8g2, u8g2_font_u8glib_4_tf);
     u8g2_DrawStr(u8g2, 21,8,"8");
         
     u8g2_SetFontDirection(u8g2, 0);
-    // u8g2_SetFont(u8g2, u8g2_font_u8glib_4_tf);
+    u8g2_SetFont(u8g2, u8g2_font_u8glib_4_tf);
     u8g2_DrawStr(u8g2, 51,30,"g");
     u8g2_DrawStr(u8g2, 67,30,"\xb2");
     
@@ -40,7 +40,7 @@ void draw(u8g2_t *u8g2)
     u8g2_DrawVLine(u8g2, 45, 32, 12);
     u8g2_DrawVLine(u8g2, 46, 33, 12);
   
-    // u8g2_SetFont(u8g2, u8g2_font_u8glib_4_tf);
+    u8g2_SetFont(u8g2, u8g2_font_u8glib_4_tf);
     u8g2_DrawStr(u8g2, 1,54,"github.com/olikraus/u8g2");
 	
 	u8g2_SendBuffer(u8g2);
@@ -57,30 +57,22 @@ void testDrawProcess(u8g2_t *u8g2)
 {
     char buff[20] = {0};
     uint16_t i = 0;
-    //char j = 0;
 	for( i=10;i<=80;i=i+2)
 	{
-        // for(j = 0; j< 20; j++)
-        // {
-        //     buff[j] = 0;
-        // }
-
 		u8g2_ClearBuffer(u8g2); 
-			
-	
+
 		sprintf(buff,"%d%%",(int)(i/80.0*100));
         // sprintf(buff,"%d%%",i);
 
-		
 		u8g2_SetFont(u8g2,u8g2_font_u8glib_4_tf);
 		u8g2_DrawStr(u8g2,16,10,"STM32 U8g2");//字符显示
-		
+
 		u8g2_SetFont(u8g2,u8g2_font_u8glib_4_tf);
 		u8g2_DrawStr(u8g2,100,29,buff);//当前进度显示
-		
+
 		u8g2_DrawRBox(u8g2,16,20,i,10,4);//圆角填充框矩形框
 		u8g2_DrawRFrame(u8g2,16,20,80,10,4);//圆角矩形
-		
+
 		u8g2_SendBuffer(u8g2);
 	}
 	HAL_Delay(500);
@@ -95,19 +87,20 @@ void testShowFont(u8g2_t *u8g2)
 	char testStr[14] = "STC32G12K128";
 	
 	u8g2_ClearBuffer(u8g2);
-	
+
 	u8g2_SetFont(u8g2,u8g2_font_u8glib_4_tf);
-	u8g2_DrawStr(u8g2,0,5,testStr);
+	u8g2_DrawStr(u8g2,16,5,testStr);
 	SEND_BUFFER_DISPLAY_MS(u8g2,t);
 	
-	u8g2_SetFont(u8g2,u8g2_font_u8glib_4_tf);
-	u8g2_DrawStr(u8g2,0,30,testStr);
+	u8g2_SetFont(u8g2,u8g2_font_5x8_mf);
+	u8g2_DrawStr(u8g2,16,30,testStr);
 	SEND_BUFFER_DISPLAY_MS(u8g2,t);
 	
-    u8g2_SetFont(u8g2,u8g2_font_u8glib_4_tf);
-	u8g2_DrawStr(u8g2,0,60,testStr);
+    u8g2_SetFont(u8g2,u8g2_font_5x7_t_cyrillic);
+	u8g2_DrawStr(u8g2,16,60,testStr);
 	SEND_BUFFER_DISPLAY_MS(u8g2,t);
     u8g2_SendBuffer(u8g2);
+	
 }
 
 //画空心矩形
@@ -215,8 +208,8 @@ void testDrawMulti(u8g2_t *u8g2)
 			u8g2_SendBuffer(u8g2);
 		}
 	}
-    
-#if 0  
+
+#if 1
 	//实心矩形逐渐变大
     u8g2_ClearBuffer(u8g2);
 	for( i=30; i>0; i-=2)
@@ -312,6 +305,7 @@ void u8g2DrawTest(u8g2_t *u8g2)
 
 	testDrawProcess(u8g2);              //进度条
     HAL_Delay(1000);    
+#if 0	
 	testDrawFrame(u8g2);
     HAL_Delay(1000);
 	testDrawRBox(u8g2);     //画实心圆角矩形
@@ -321,10 +315,13 @@ void u8g2DrawTest(u8g2_t *u8g2)
     HAL_Delay(1000);
 	testDrawFilledEllipse(u8g2);
     HAL_Delay(1000);
+#endif	
 	testShowFont(u8g2);
     HAL_Delay(1000);
+#if 0	
 	testDrawXBM(u8g2);
     HAL_Delay(1000);
+#endif	
 }
 
 

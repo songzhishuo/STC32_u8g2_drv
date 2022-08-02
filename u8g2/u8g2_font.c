@@ -1077,7 +1077,7 @@ void u8g2_SetFontPosCenter(u8g2_t *u8g2)
 
 /*===============================================*/
 
-void u8g2_SetFont(u8g2_t *u8g2, const uint8_t  *font)
+void u8g2_SetFont(u8g2_t *u8g2, uint8_t  *font)
 {
   if ( u8g2->font != font )
   {
