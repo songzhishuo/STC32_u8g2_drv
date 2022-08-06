@@ -15,7 +15,7 @@ STC mirco ssd1306 oled drv
 
 在默认的工程中添加了一个测试Demo，演示了文字显示和图像显示信息。
 
-![img](Images\graphic_test.gif)
+![img](Images/graphic_test.gif)
 
 注：程序默认使用内部11.0592MHz晶振。
 
@@ -24,10 +24,9 @@ STC mirco ssd1306 oled drv
 ## 1. 字体的切换和使用方法
 
 因Keil 80251 编译器不支持将未使用的代码不编译到Bin文件中，因此不是用的字库文件默认是进行屏蔽处理的。在使用时候请参考[u8g2Wiki fonts](https://github.com/olikraus/u8g2/wiki/fntlist8x8) 介绍对相应字体进行解除屏蔽，相应的不是用的字体也要进行屏蔽操作，以节约ROM占用。操作方法如下：
-
-      1. 首先打开`u8g2.h` 文件，将需要使用的字体声明使用`#if`和`#endif`解除屏蔽。
-       ![image-20220806210942809](Images\font_set1.png)
-      2. 打开`u8g2_fonts.h`文件，使用上一步的方法对需要使用的字体的定义进行解除屏蔽。
+1. 首先打开`u8g2.h` 文件，将需要使用的字体声明使用`#if`和`#endif`解除屏蔽。
+![image-20220806210942809](Images/font_set1.png)
+2. 打开`u8g2_fonts.h`文件，使用上一步的方法对需要使用的字体的定义进行解除屏蔽。
 
 ## 2. 不同型号屏幕的使用
 
