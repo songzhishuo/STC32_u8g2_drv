@@ -42,17 +42,16 @@
 void u8g2_DrawBox(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8g2_uint_t h)
 {
 #ifdef U8G2_WITH_INTERSECTION
-  if ( u8g2_IsIntersection(u8g2, x, y, x+w, y+h) == 0 ) 
+  if (u8g2_IsIntersection(u8g2, x, y, x + w, y + h) == 0)
     return;
 #endif /* U8G2_WITH_INTERSECTION */
-  while( h != 0 )
-  { 
+  while (h != 0)
+  {
     u8g2_DrawHVLine(u8g2, x, y, w, 0);
-    y++;    
+    y++;
     h--;
   }
 }
-
 
 /*
   draw a frame (empty box)
@@ -61,29 +60,28 @@ void u8g2_DrawBox(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8g
 void u8g2_DrawFrame(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8g2_uint_t h)
 {
   u8g2_uint_t xtmp = x;
-  
+
 #ifdef U8G2_WITH_INTERSECTION
-  if ( u8g2_IsIntersection(u8g2, x, y, x+w, y+h) == 0 ) 
+  if (u8g2_IsIntersection(u8g2, x, y, x + w, y + h) == 0)
     return;
 #endif /* U8G2_WITH_INTERSECTION */
-  
+
   u8g2_DrawHVLine(u8g2, x, y, w, 0);
-  if (h >= 2) {
-    h-=2;
+  if (h >= 2)
+  {
+    h -= 2;
     y++;
-    if (h > 0) {
+    if (h > 0)
+    {
       u8g2_DrawHVLine(u8g2, x, y, h, 1);
-      x+=w;
+      x += w;
       x--;
       u8g2_DrawHVLine(u8g2, x, y, h, 1);
-      y+=h;
+      y += h;
     }
     u8g2_DrawHVLine(u8g2, xtmp, y, w, 0);
   }
 }
-
-
-
 
 void u8g2_DrawRBox(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8g2_uint_t h, u8g2_uint_t r)
 {
@@ -91,7 +89,7 @@ void u8g2_DrawRBox(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8
   u8g2_uint_t yl, xr;
 
 #ifdef U8G2_WITH_INTERSECTION
-  if ( u8g2_IsIntersection(u8g2, x, y, x+w, y+h) == 0 ) 
+  if (u8g2_IsIntersection(u8g2, x, y, x + w, y + h) == 0)
     return;
 #endif /* U8G2_WITH_INTERSECTION */
 
@@ -99,15 +97,15 @@ void u8g2_DrawRBox(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8
   xl += r;
   yu = y;
   yu += r;
- 
+
   xr = x;
   xr += w;
   xr -= r;
   xr -= 1;
-  
+
   yl = y;
   yl += h;
-  yl -= r; 
+  yl -= r;
   yl -= 1;
 
   u8g2_DrawDisc(u8g2, xl, yu, r, U8G2_DRAW_UPPER_LEFT);
@@ -123,19 +121,19 @@ void u8g2_DrawRBox(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8
     ww -= r;
     xl++;
     yu++;
-    
-    if ( ww >= 3 )
+
+    if (ww >= 3)
     {
       ww -= 2;
-      u8g2_DrawBox(u8g2, xl, y, ww, r+1);
-      u8g2_DrawBox(u8g2, xl, yl, ww, r+1);
+      u8g2_DrawBox(u8g2, xl, y, ww, r + 1);
+      u8g2_DrawBox(u8g2, xl, yl, ww, r + 1);
     }
-    
+
     hh = h;
     hh -= r;
     hh -= r;
     //h--;
-    if ( hh >= 3 )
+    if (hh >= 3)
     {
       hh -= 2;
       u8g2_DrawBox(u8g2, x, yu, w, hh);
@@ -143,13 +141,12 @@ void u8g2_DrawRBox(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8
   }
 }
 
-
 void u8g2_DrawRFrame(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, u8g2_uint_t h, u8g2_uint_t r)
 {
   u8g2_uint_t xl, yu;
 
 #ifdef U8G2_WITH_INTERSECTION
-  if ( u8g2_IsIntersection(u8g2, x, y, x+w, y+h) == 0 ) 
+  if (u8g2_IsIntersection(u8g2, x, y, x + w, y + h) == 0)
     return;
 #endif /* U8G2_WITH_INTERSECTION */
 
@@ -157,18 +154,18 @@ void u8g2_DrawRFrame(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, 
   xl += r;
   yu = y;
   yu += r;
- 
+
   {
     u8g2_uint_t yl, xr;
-      
+
     xr = x;
     xr += w;
     xr -= r;
     xr -= 1;
-    
+
     yl = y;
     yl += h;
-    yl -= r; 
+    yl -= r;
     yl -= 1;
 
     u8g2_DrawCircle(u8g2, xl, yu, r, U8G2_DRAW_UPPER_LEFT);
@@ -186,25 +183,24 @@ void u8g2_DrawRFrame(u8g2_t *u8g2, u8g2_uint_t x, u8g2_uint_t y, u8g2_uint_t w, 
     hh = h;
     hh -= r;
     hh -= r;
-    
+
     xl++;
     yu++;
-    
-    if ( ww >= 3 )
+
+    if (ww >= 3)
     {
       ww -= 2;
       h--;
       u8g2_DrawHLine(u8g2, xl, y, ww);
-      u8g2_DrawHLine(u8g2, xl, y+h, ww);
+      u8g2_DrawHLine(u8g2, xl, y + h, ww);
     }
-    
-    if ( hh >= 3 )
+
+    if (hh >= 3)
     {
       hh -= 2;
       w--;
       u8g2_DrawVLine(u8g2, x, yu, hh);
-      u8g2_DrawVLine(u8g2, x+w, yu, hh);
+      u8g2_DrawVLine(u8g2, x + w, yu, hh);
     }
   }
 }
-

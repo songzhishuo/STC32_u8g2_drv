@@ -5,7 +5,7 @@
 
 #include "u8g2_test.h"
 
-static u8g2_t u8g2; //首先定义u8g2的对象
+static u8g2_t u8g2;
 
 static uint8_t u8x8_stm32_gpio_and_delay(U8X8_UNUSED u8x8_t *u8x8,
                                          U8X8_UNUSED uint8_t msg, U8X8_UNUSED uint8_t arg_int,
@@ -17,91 +17,29 @@ static uint8_t u8x8_byte_4wire_hw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int
 static uint8_t u8x8_byte_hw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int,
                                 void *arg_ptr);
 
-
 void LCD_Init()
 {
-    // u8g2_Setup_ssd1306_i2c_128x64_noname_1(&u8g2, U8G2_R0, u8x8_byte_hw_i2c, u8x8_stm32_gpio_and_delay);
     u8g2_Setup_ssd1306_i2c_128x64_noname_f(&u8g2, U8G2_R0, u8x8_byte_hw_i2c, u8x8_stm32_gpio_and_delay);
-    //u8g2_Setup_st7565_jlx12864_1(&u8g2, U8G2_R2, u8x8_byte_4wire_hw_spi, u8x8_stm32_gpio_and_delay);
     u8g2_InitDisplay(&u8g2);
     u8g2_SetPowerSave(&u8g2, 0);
 }
 
-
-void First_Src()
-{
-    uint8_t str_buf0[32] = {0};
-    uint8_t str_buf1[32] = {0};
-    uint8_t str_buf2[32] = {0};
-    uint8_t i = 0;
-    uint8_t x = 0, y = 0;
-
-    u8g2_SetFontMode(&u8g2, 1);  // Transparent
-    u8g2_SetFontDirection(&u8g2, 0);
-    u8g2_SetFont(&u8g2, u8g2_font_u8glib_4_tf);
-
-    /*显示时间*/
-    y = y+20;
-    u8g2_DrawStr(&u8g2, 0, y, (const char *)"Smart");
-
-    // u8g2_SetFont(&u8g2, u8g2_font_fub17_tf);
-    u8g2_DrawStr(&u8g2, 65, y, (const char *)" meters");
-
-
-    // u8g2_SetFont(&u8g2, u8g2_font_fub17_tf);
-#if 0
-    sprintf(str_buf0, " volt : %.03f V", 12.11);
-    sprintf(str_buf1, " curr : %.03f A", 12.22);
-    sprintf(str_buf2, " power : %.03f W", 11);
-
-    y = y + 12; 
-    u8g2_DrawStr(&u8g2, 5, y, (const char *)str_buf0);       //显示电压
-    y = y + 12; 
-    u8g2_DrawStr(&u8g2, 5, y, (const char *)str_buf1);       //显示电流
-    y = y + 12; 
-    u8g2_DrawStr(&u8g2, 5, y, (const char *)str_buf2);       //显示功
-#endif
-
-		 
-     for(i = 0; i< 50;i++)
-    {
-        //u8g2_ClearBuffer();
-        u8g2_DrawBox(&u8g2, 50,i,25,15);
-        u8g2_SendBuffer(&u8g2);
-        //HAL_Delay(20);
-     }
-
-
-    // for(i = 0; i< 50;i++)
-    //{
-        //u8g2_ClearBuffer();
-        u8g2_DrawBox(&u8g2, 30,50,25,15);
-        u8g2_SendBuffer(&u8g2);
-        //HAL_Delay(20);
-    // }
-
-
-}
-
 void LCD_show()
 {
-    // u8g2_ClearBuffer();
-    // u8g2_SendBuffer(&u8g2);
-    // u8g2_ClearDisplay(&u8g2);
-    // HAL_Delay(200);
-
-    // Test_Dis(&u8g2);
-    // u8g2DrawTest(&u8g2);
-    // u8g2_SendBuffer(&u8g2);
-	//First_Src();
-#if 1    
-    u8g2_FirstPage(&u8g2);
-    do
+    static uint8_t draw_state = 0;
+    while (1)
     {
-        //First_Src();
-         u8g2DrawTest(&u8g2);
-    } while (u8g2_NextPage(&u8g2));
-#endif
+        u8g2_FirstPage(&u8g2);
+        do
+        {
+            test_Display(&u8g2, draw_state);
+        } while (u8g2_NextPage(&u8g2));
+
+        // increase the state
+        draw_state++;
+        if (draw_state >= 14 * 8)
+            draw_state = 0;
+    }
 }
 
 /*
@@ -138,7 +76,7 @@ static uint8_t u8x8_byte_4wire_hw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int
     default:
         return 0;
     }
-#endif    
+#endif
     return 1;
 }
 
@@ -161,7 +99,7 @@ static uint8_t u8x8_stm32_gpio_and_delay(U8X8_UNUSED u8x8_t *u8x8,
     case U8X8_MSG_GPIO_I2C_DATA:
         break;
 
-#if 0               //TODO：SPI后续实现
+#if 0 //TODO：SPI后续实现
     case U8X8_MSG_GPIO_CS:
         //GPIO_WriteBit(OLED_CS_GPIO_Port, OLED_CS_Pin, arg_int);
         HAL_GPIO_WritePin(LCD_DC_GPIO_Port, LCD_DC_Pin, arg_int);

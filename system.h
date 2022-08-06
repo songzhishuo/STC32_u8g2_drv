@@ -31,7 +31,7 @@ typedef signed long int32_t; // 32 bits
 typedef unsigned char uint8_t;  //  8 bits
 typedef unsigned int uint16_t;  // 16 bits
 typedef unsigned long uint32_t; // 32 bits
-
+typedef unsigned int bool;
 //typedef unsigned long size_t;
 // #define int8_t			int8
 // #define int16_t		int16
@@ -43,8 +43,14 @@ typedef unsigned long uint32_t; // 32 bits
 
 #define TRUE 1
 #define FALSE 0
+
+#define true TRUE
+#define false FALSE
+
 #define HAL_MAX_DELAY 0xFF
 //===================================================
+
+
 
 #ifndef NULL
 #define NULL ((void *) 0)
