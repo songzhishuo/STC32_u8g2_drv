@@ -1,6 +1,5 @@
 # STC32_Base_SSD1306_OLED_DRV
-STC mirco ssd1306 oled drv
-
+本项目将Arduino 中常用的图形库U8g2，移植入STC32 中。
 
 # 使用注意事项
 
@@ -27,6 +26,7 @@ STC mirco ssd1306 oled drv
 1. 首先打开`u8g2.h` 文件，将需要使用的字体声明使用`#if`和`#endif`解除屏蔽。
 ![image-20220806210942809](Images/font_set1.png)
 2. 打开`u8g2_fonts.h`文件，使用上一步的方法对需要使用的字体的定义进行解除屏蔽。
+![image-20220806213500158](Images/font_set2.png)
 
 ## 2. 不同型号屏幕的使用
 
