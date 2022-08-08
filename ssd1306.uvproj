@@ -272,7 +272,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\IIC;.\ssd1306;.\u8g2</IncludePath>
+              <IncludePath>.\IIC;.\u8g2</IncludePath>
             </VariousControls>
           </C251>
           <Ax51>
