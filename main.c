@@ -4,7 +4,6 @@
 #include "u8g2_porting.h"
 //==========================================================================
 
-
 /*************  本地常量声明    **************/
 
 /*************  IO口定义    **************/
@@ -24,20 +23,9 @@ void main(void)
   CKCON = 0; //提高访问XRAM速度
 
   HAL_GPIO_Init();
-  P40 = 0; //LED Power On
- // HAL_Timer0_Init();
-  EA = 1; //打开总中断
+  P40 = 0; // LED Power On
+  EA = 1;  //打开总中断
 
-  HAL_I2C_Init();
   LCD_Init();
-	LCD_show();
-
-  while (1)
-  {
-    flag = !flag;
-    P34 = flag; //输出低驱动
-    ledIndex++;
-
-    HAL_Delay(500);
-  }
+  LCD_show();
 }

@@ -9,6 +9,8 @@
 #include <string.h>
 //#include "intrins.h"
 
+#define __STC_51__      1
+
 #define MAIN_Fosc 11059200L //定义主时钟
 #define TIMER0_RELOAD (65536UL - (MAIN_Fosc / 1000)) //Timer 0 中断频率, 1000次/秒
 
@@ -32,14 +34,6 @@ typedef unsigned char uint8_t;  //  8 bits
 typedef unsigned int uint16_t;  // 16 bits
 typedef unsigned long uint32_t; // 32 bits
 typedef unsigned int bool;
-//typedef unsigned long size_t;
-// #define int8_t			int8
-// #define int16_t		int16
-// #define int32_t		int32
-// #define uint8_t		uint8
-// #define uint16_t		uint16
-// #define uint32_t		uint32
-//===================================================
 
 #define TRUE 1
 #define FALSE 0
@@ -48,9 +42,6 @@ typedef unsigned int bool;
 #define false FALSE
 
 #define HAL_MAX_DELAY 0xFF
-//===================================================
-
-
 
 #ifndef NULL
 #define NULL ((void *) 0)

@@ -272,7 +272,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\IIC;.\u8g2</IncludePath>
+              <IncludePath>.\IIC;.\u8g2;.\SPI</IncludePath>
             </VariousControls>
           </C251>
           <Ax51>
@@ -338,6 +338,11 @@
               <FileName>iic.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\IIC\iic.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SPI\spi.c</FilePath>
             </File>
           </Files>
         </Group>
