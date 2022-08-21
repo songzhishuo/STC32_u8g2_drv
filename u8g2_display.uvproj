@@ -344,6 +344,11 @@
               <FileType>1</FileType>
               <FilePath>.\SPI\spi.c</FilePath>
             </File>
+            <File>
+              <FileName>ISR.asm</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\ISR.asm</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

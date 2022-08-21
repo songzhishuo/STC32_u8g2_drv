@@ -1,13 +1,9 @@
 #include "u8g2_porting.h"
+#include "u8g2.h" /*u8g图形库*/
+#include "u8g2_test.h"
 #include "system.h"
 #include "iic.h"
 #include "spi.h"
-#include "u8g2.h" /*u8g图形库*/
-
-#include "u8g2_test.h"
-
-#define U8g2_I2C_MODE 1
-#define U8g2_SPI_MODE !U8g2_I2C_MODE
 
 sbit OLED_DC = P2^1;
 sbit OLED_REST = P2^0;
@@ -59,6 +55,7 @@ void LCD_show()
 static uint8_t u8x8_byte_4wire_hw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int,
                                       void *arg_ptr)
 {
+	 /* u8g2/u8x8 will never send more than 32 bytes between START_TRANSFER and END_TRANSFER */
     switch (msg)
     {
     case U8X8_MSG_BYTE_SEND:
@@ -71,11 +68,12 @@ static uint8_t u8x8_byte_4wire_hw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int
         OLED_DC = arg_int;
         break;
     case U8X8_MSG_BYTE_START_TRANSFER: /*数据传输完成之后将CS引脚使能*/
-        SPI_CS = 0;
-
+		SPI_CS = 0;
+        HAL_Delay(1);
         break;
     case U8X8_MSG_BYTE_END_TRANSFER: /*数据传输完成之后将CS引脚拉起*/
-
+        //  HAL_SPI_Transmit(buffer, buf_idx, 0x00FF);
+		HAL_Delay(1);                                                           
         SPI_CS = 1;
         break;
 
@@ -140,8 +138,8 @@ uint8_t u8x8_byte_hw_i2c(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_p
         break;
 
     case U8X8_MSG_BYTE_INIT:
-        HAL_I2C_Init();
         /* add your custom code to init i2c subsystem */
+        HAL_I2C_Init();
         break;
 
     case U8X8_MSG_BYTE_START_TRANSFER:
