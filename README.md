@@ -1,4 +1,3 @@
-# STC32_Base_SSD1306_OLED_DRV
 本项目将Arduino 中常用的图形库U8g2，移植入STC32 中。
 
 # 使用注意事项
@@ -7,8 +6,28 @@
 2. 目前没有适配SPI驱动
 3. 使用STClink1D时，在下载完程序需要手动复位单片机（PS：单片机的复位IO 需要在ISP中进行使能才可使用）
 4. 本工程仅在STC32G12K128Beat LQFP64 上进行了测试，如有bug请issues me。
+5. IO分配：
 
+IIC 模式：
 
+| 引脚名 | 引脚编号 |
+| ------ | -------- |
+| SCL    | P1.5     |
+| SDA    | P1.4     |
+| RST    | P2.0     |
+
+SPI模式：
+
+| 引脚名 | 引脚编号 |
+| ------ | -------- |
+| CS     | P2.2     |
+| CLK    | P2.5     |
+| MISO   | P2.4     |
+| MOSI   | P2.3     |
+| RST    | P2.0     |
+| DC     | P2.1     |
+
+注: IIC 模式下如果没有RST引脚可不接。
 
 # 程序测试：
 
@@ -42,7 +61,15 @@ U8g2 的强大之处在于内部集成了诸多的点阵屏驱动，我们可以
 
 [u8x8reference · olikraus/u8g2 Wiki (github.com)](https://github.com/olikraus/u8g2/wiki/u8x8reference)
 
+## 4. SPI IIC 驱动的切换
 
+在驱动使用过程中可以通过选择IIC宏和SPI宏的形式切换驱动（同时可以将DMA功能开启）。
+
+![image-20220821172903653](Images\define_set.png)
+
+![image-20220821173005194](Images\define2_set.png)
+
+注： SPI和IIC 功能不可同时开启
 
 # 参考
 
