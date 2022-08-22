@@ -65,9 +65,9 @@ U8g2 的强大之处在于内部集成了诸多的点阵屏驱动，我们可以
 
 在驱动使用过程中可以通过选择IIC宏和SPI宏的形式切换驱动（同时可以将DMA功能开启）。
 
-![image-20220821172903653](Images\define_set.png)
+![image-20220821172903653](Images/define_set.png)
 
-![image-20220821173005194](Images\define2_set.png)
+![image-20220821173005194](Images/define2_set.png)
 
 注： SPI和IIC 功能不可同时开启
 
