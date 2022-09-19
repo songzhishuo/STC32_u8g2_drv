@@ -71,7 +71,7 @@ U8g2 的强大之处在于内部集成了诸多的点阵屏驱动，我们可以
 
 注： SPI和IIC 功能不可同时开启
 
-# 参考
+# 参考&鸣谢
 
 1. [U8glib library for monochrome displays](https://github.com/olikraus/u8g2)
 2. [rt-u8g2: U8g2 for rt-thread - a monochrome graphics library](https://github.com/wuhanstudio/rt-u8g2)
